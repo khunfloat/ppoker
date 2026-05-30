@@ -1,0 +1,29 @@
+disabled_rules:
+  - identifier_name
+  - line_length
+  - file_length
+  - type_body_length
+  - function_body_length
+  - cyclomatic_complexity
+  - todo
+  - large_tuple
+  - nesting
+
+opt_in_rules:
+  - empty_count
+  - first_where
+  - sorted_first_last
+  - contains_over_first_not_nil
+  - unused_import
+  - closure_spacing
+
+included:
+  - Sources
+  - Tests
+
+excluded:
+  - .build
+  - .swiftpm
+
+trailing_whitespace:
+  ignores_empty_lines: true

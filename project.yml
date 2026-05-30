@@ -1,0 +1,60 @@
+name: PPoker
+options:
+  bundleIdPrefix: com.float
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ""              # fill with your Apple Developer Team ID
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+
+packages:
+  PPoker:
+    path: .
+
+targets:
+  PPoker:
+    type: application
+    platform: iOS
+    sources:
+      - path: App
+    resources:
+      - path: App/Assets.xcassets
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: PPoker
+        LSRequiresIPhoneOS: true
+        UIUserInterfaceStyle: Dark
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UILaunchScreen:
+          UIColorName: ""
+        NSLocalNetworkUsageDescription: "PPoker uses your local network to find nearby players for offline poker games."
+        NSBluetoothAlwaysUsageDescription: "PPoker uses Bluetooth to connect with nearby players when Wi-Fi is unavailable."
+        NSBluetoothPeripheralUsageDescription: "PPoker uses Bluetooth to connect with nearby players."
+        NSBonjourServices:
+          - "_ppoker-lb1._tcp"
+          - "_ppoker-lb1._udp"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.float.ppoker
+        PRODUCT_NAME: PPoker
+        TARGETED_DEVICE_FAMILY: "1"        # iPhone only
+        INFOPLIST_FILE: App/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: YES
+    dependencies:
+      - package: PPoker
+        product: PPokerUI
